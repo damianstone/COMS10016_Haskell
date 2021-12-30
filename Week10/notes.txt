@@ -1,0 +1,24 @@
+VIDEO 1: MONADS
+
+MONANDS 
+can be used to sequence actions, like Applicative 
+we can use monads to make action
+s depend on the results of the previous actions   
+
+>>= called 'binds' 
+
+QUESTIONS
+1- yes 
+2- yes 
+3- No
+4-
+5-  
+
+
+VIDEO 2: EMBEDDING PART 1
+
+embedded domain specific language 
+
+Embedding => the language construcs are embedded as data types in the host language 
+
+
