@@ -4,7 +4,7 @@ class Applicative m => Monad m where
 
 (>=>) :: Monad m 
 => (a -> m b) 
--> (b -> m c)
+-> (b -> m c) 
 -> (a -> m c)
 famb >=> fbmc = \x -> famb >>= fbmc
 

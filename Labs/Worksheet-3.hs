@@ -2,7 +2,7 @@
 deception :: [[[a]]]
 deception = [[[ ], [ ]], [[ ]], [[ ], [ ], [ ]]]
 
--- 2 PATTERN MATCHING
+-- 2 PATTERN MATCHING --------------------------------------------------------------------------
 -- a)
 delta :: Int -> Int
 delta 0 = 1
@@ -21,7 +21,7 @@ factorial :: Int -> Int
 factorial 0 = 1
 factorial n = n * factorial (n - 1)
 
--- CARDS
+-- CARDS --------------------------------------------------------------------------
 data Suit = Hearts | Diamonds | Clubs | Spades
 type Pip = Int
 type Rank = Either Pip Court
@@ -35,7 +35,7 @@ snap (Card s1 r1) (Card s2 r2)
     | s1 == s2 && r1 == r2 = "SNAP"
     | otherwise = "NO SNAP"
 
--- MAYBE
+-- MAYBE --------------------------------------------------------------------------
 data Maybe a = Just a | Nothing
 isJust :: Maybe a -> Bool 
 isJust (Just x) = True 
@@ -57,7 +57,7 @@ perform f Nothing = Nothing
 perform f (Just x) = Just (f x)
 
 
--- EITHER
+-- EITHER --------------------------------------------------------------------------
 data Either a b = Left a | Right b
 
 forget :: Either String a -> Maybe a 

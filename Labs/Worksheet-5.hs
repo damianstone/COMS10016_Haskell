@@ -1,6 +1,6 @@
 import Prelude hiding (sum, product, and, or, all, any, length, foldr, foldl,reverse, filter)
 
--- 1 FOLDING 
+-- 1 FOLDING  --------------------------------------------------------------------------
 
 -- 1 recursion in the following functions
 sum :: [Integer] -> Integer
@@ -11,13 +11,12 @@ product :: [Integer] -> Integer
 product [] = 0
 product (x:xs) = x * product xs
 
--- FOLDR DEFINITION
 -- Foldr definition
 foldr :: (a -> b -> b) -> b -> [a] -> b
 foldr f k [] = k
 foldr f k (x:xs) = f x (foldr f k xs)
 
--- USE FOLDR
+-- USE FOLDR --------------------------------------------------------------------------
 --sum all the elements in the list 
 sumFoldr :: [Integer] -> Integer
 sumFoldr xs = foldr (+) 0 xs -- foldr + (sign of operation) default return value and list === foldr (+) 0 xs

@@ -2,7 +2,7 @@ import System.Environment
 import System.IO
 import System.IO.Error
 
--- BASIC IO INTERACTION
+-- BASIC IO INTERACTION ---------------------------------------------------------------------------
 -- Print output to the command line 
 --putStr :: String -> IO ()
 --putStrLn :: String -> IO ()
@@ -34,7 +34,7 @@ getInt = do
         line <- getLine
         return (read line)
 
--- 2 FILE IO, MAIN AND COMMAND LINE ARGUMENTS
+-- 2 FILE IO, MAIN AND COMMAND LINE ARGUMENTS ---------------------------------------------------------------------------
 
 -- main :: IO () => The entry point for any Haskell program executed on the command line is
 --main :: IO ()
@@ -56,7 +56,7 @@ echoArgs' = do
             putStrLn (unwords args) -- unwords places a space between each element in the provided lis
 -- example ghci> echoArgs' "Damian" "Kowalski" // Damian Kowalski
 
--- WRITE AND READ FILES
+-- WRITE AND READ FILES --------------------------------------------------------------------------------
 
 -- a) which preprends "> " on to the front of every string in the provided list
 addLineStart :: [String] -> [String]
@@ -83,7 +83,7 @@ main :: IO ()
 main = do  [hs, lhs] <- getArgs
            hsToLhs hs lhs
 
--- 3 NUMBER GUESSING GAME
+-- 3 NUMBER GUESSING GAME -----------------------------------------------------------------------------
 
 -- a) playRound number
 -- ask a number to user until they guess the number

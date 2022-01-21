@@ -1,13 +1,14 @@
 {-# LANGUAGE InstanceSigs #-}
-{-# LANGUAGE StandaloneDeriving #-}
-module Functors where
+{-# OPTIONS_GHC -Wno-overlapping-patterns #-}
+module Applicatives where
+import Functors
 import Prelude hiding (Functor(..), (<$>), Applicative(..))
-import System.IO
 
--- fmap id = id  => (functor identity)
--- fmap g · fmap f = fmap (g · f) => (functor composition)
+    -- for applicatives <*> means f (a -> b) -> f a -> f b
+    -- for functor <$> means f a -> f (a -> b)
 
--- 1 FUNCTORS ---------------------------------------------------------------------------
+
+-- 1 FUNCTORS
 
 class Functor f where
     fmap :: (a -> b) -> f a -> f b
@@ -58,7 +59,7 @@ instance Functor IO where
 
 
 
---  2 APPLICATIVES ---------------------------------------------------------------------------
+--  2 APPLICATIVES
 
 -- all applicatives are also functors
 
@@ -107,36 +108,13 @@ instance Applicative (Reader a) where
 -- instance for applicative IO
 instance Applicative IO where
 
--- example ghci> pure (+1) <*> (IO (\x -> x + 1)) // IO (+1)
-
--- Implement functions ---------------------------------------------------------------------------
-
-fmapAp :: Applicative f => (a -> b) -> f a -> f b
-fmapAp f x = pure f <*> x
--- example ghci> fmapAp (+1) [1,2,3] // [2,3,4]
-
-liftA2 :: Applicative f => (a -> b -> c) -> (f a -> f b -> f c)
-liftA2 f x y = fmap f x <*> y
--- example ghci> liftA2 (,) ['a', 'b'] [1, 2] // [('a',1), ('b',2)]
--- example ghci> liftA2 (+) (Just 7) (Just 3) // Just 10
-
-doTwice :: Applicative f => f a -> f (a, a)
-doTwice x = liftA2 (,) x x
--- example ghci> doTwice (Just 3) // Just (3,3)
--- example ghci> doTwice [1, 2] // [(1,1), (2,2)]
 
 
-sequenceAp :: Applicative f => [f a] -> f [a]
-sequenceAp [] = pure []
-sequenceAp (x:xs) = liftA2 (:) x (sequenceAp xs)
--- example ghci> sequenceAp [Just 1, Just 2, Just 3] // Just [1,2,3]
--- example ghci> sequenceAp [Just 1, Just 3,Nothing] // Nothing
 
-mapAp :: Applicative f => (a -> f b) -> [a] -> f [b]
-mapAp f xs = sequenceAp (fmap f xs)
--- example ghci> mapAp (+1) [1,2,3] // [2,3,4]
 
-mapAp_ :: Applicative f => (a -> f b) -> [a] -> f ()
-mapAp_ f xs = fmap (const ()) (mapAp f xs)
--- example ghci> mapAp_ print [1..5] // [(),(),(),(),()]
+
+
+
+
+
 

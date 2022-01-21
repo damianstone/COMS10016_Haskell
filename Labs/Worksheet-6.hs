@@ -1,7 +1,7 @@
 import Prelude hiding (fromInteger)
 import Test.QuickCheck
 
--- 1 LIST COMPREHENSIONS
+-- 1 LIST COMPREHENSIONS --------------------------------------------------------------------------
 
 -- a) using nats define square that retins the square of all integers
 nats :: [Integer] 
@@ -26,7 +26,7 @@ cartesian :: [a] -> [a] -> [(a,a)]
 cartesian xs ys = [(x,y) | x <- xs, y <- ys]
 -- example ghci> cartesian [1,2,3] [4,5,6] // = [(1,4),(1,5),(1,6),(2,4),(2,5),(2,6),(3,4),(3,5),(3,6)]
 
--- BIT STRING
+-- BIT STRING --------------------------------------------------------------------------
 
 -- a) Write a function that will output all possible bit strings of length n
 bitString :: Int -> [String]
@@ -40,7 +40,8 @@ bitStrings n = concat (map bitString [0..n])
 -- example ghci> bitStrings 3 // = ["000","001","010","011","100","101","110","111"]
 
 
--- 2 TYPE CLASSES
+-- 2 TYPE CLASSES --------------------------------------------------------------------------
+
 class Pretty a where
     pretty :: a -> String
 
@@ -130,7 +131,7 @@ zipWith' _ _ _ = []
 --pi' :: Int -> Double
 --pi' n = sum (take n pis')
 
--- 3 TREES
+-- 3 TREES --------------------------------------------------------------------------
 
 data Tree a = Leaf a
             | Fork (Tree a) (Tree a)
@@ -185,7 +186,7 @@ collapse' = foldTree (: []) (++)
 -- example ghci> collapse' (Split (Leaf' 1) (Leaf' 2)) // = [1,2]
 
 
--- PROPERTIES OF TREES
+-- PROPERTIES OF TREES --------------------------------------------------------------------------
 
 --instance Arbitrary a => Arbitrary (Tree a) where
 --    arbitrary = sized genTree

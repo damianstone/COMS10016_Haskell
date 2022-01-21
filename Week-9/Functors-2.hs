@@ -1,17 +1,7 @@
 {-# LANGUAGE InstanceSigs #-}
 module Functors where
 
--- This is the final code we ended up with in the lecture.
--- If you have not yet seen the lecture, it is highly
--- recommended that you first watch it, adding
--- to your own blank file as you go, at least once 
--- *before* looking at this one.
-
 import Prelude hiding (Functor(..))
-
--- Goal: Apply functions into a context. 
---       More concretely, this often means applying a
---       function to every element of a container
 
 mapList :: (a -> b) -> [a] -> [b]
 mapList f []     = []
@@ -51,6 +41,12 @@ instance Functor Tree where
 
 instance Functor [] where 
   fmap = map
+
+-- TRY THE CODE
+-- fmap (+1) [1,2,3]
+-- fmap (+1) (Just 1)
+-- fmap (+1) Empty
+-- fmap (+1) (Fork 2 (Fork 1 Empty Empty) (Fork 3 Empty Empty))
 
 (<$>) :: Functor f => (a -> b) -> f a -> f b
 (<$>) = fmap

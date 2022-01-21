@@ -1,4 +1,4 @@
--- 1 PATTERN MATCHING ON LISTS
+-- 1 PATTERN MATCHING ON LISTS --------------------------------------------------------------------------
 
 -- Generate an ascending list of integers
 ascendingList :: Int -> Int -> [Int]
@@ -52,7 +52,7 @@ split (x:xs) = (x:ys,zs)
          where (ys,zs) = split xs
 
 
--- 2 PROPERTIES AND TESTING
+-- 2 PROPERTIES AND TESTING --------------------------------------------------------------------------
 data List a = Empty
         | Cons a (List a)
     deriving Eq

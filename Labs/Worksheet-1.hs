@@ -1,6 +1,6 @@
 
 
--- SECTION 2: GUESS THE TYPE
+-- SECTION 2: GUESS THE TYPE --------------------------------------------------------------------------
 --1
 cloudCloud :: Float
 cloudCloud = 0.69
@@ -56,7 +56,7 @@ choose :: Bool -> a -> b -> c
 choose True x y = x
 choose False x y = y
 
--- SECTION 3 PARENTHESES
+-- SECTION 3 PARENTHESES --------------------------------------------------------------------------
 
 -- 1 Remove the redundant parentheses from its type signature.
 f:: (((Int) -> (Bool)) -> ((Int) -> (Bool)))

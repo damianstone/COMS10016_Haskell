@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
 import GhcPrelude (String)
 
--- 1 GUARDS
+-- 1 GUARDS --------------------------------------------------------------------------
 square :: Int -> Int
 square x = x * x
 
@@ -25,7 +25,7 @@ len2 = length [undefined, undefined] -- VALID BECAUSE UNDEFINED IN HASKELL IS AN
 -- len3 = [1, 'a'] ERROR
 
 
--- 2 GUARDS
+-- 2 GUARDS --------------------------------------------------------------------------
 -- Factorial functions
 factorial :: Integer -> Integer
 factorial n
